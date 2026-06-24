@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Edit",
+      "Bash(npm run *)",
+      "Bash(git status)",
+      "Bash(git diff:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ],
+    "ask": [
+      "Bash(git push:*)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Read(./.env)",
+      "Read(./.env.*)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'dest=\"$CLAUDE_PROJECT_DIR/plans\"; mkdir -p \"$dest\"; latest=$(ls -t \"$HOME/.claude/plans\"/*.md 2>/dev/null | head -1); [ -n \"$latest\" ] && cp -n \"$latest\" \"$dest/\" 2>/dev/null; exit 0'"
+          }
+        ]
+      }
+    ]
+  }
+}

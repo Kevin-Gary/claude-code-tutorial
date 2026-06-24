@@ -1,0 +1,16 @@
+# Personal, machine-specific Claude context (see CLAUDE.local.md.example)
+CLAUDE.local.md
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Node / Next
+node_modules/
+.next/
+out/
+dist/
+
+# OS
+.DS_Store

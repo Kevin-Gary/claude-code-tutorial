@@ -1,0 +1,14 @@
+<!-- 📘 CLAUDE.local.md is your PERSONAL, gitignored layer on top of CLAUDE.md. It loads the same
+     way but never gets committed, so it's the right home for things that are true for YOU on YOUR
+     machine but shouldn't be forced on the team. Copy this file to `CLAUDE.local.md` to use it.
+     (We ship a `.example` so the pattern is visible without committing a real local file.) -->
+
+# Personal overrides (not committed)
+
+## My setup
+- I run the dev server on port 4000 (`npm run dev -- -p 4000`).
+- My scratch notes for this project live in `~/notes/verdant.md` (don't read it unless I point you there).
+
+## My preferences for this repo
+- When you finish a change, show me the diff before committing.
+- I like terse commit messages. No fluff.
