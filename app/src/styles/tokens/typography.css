@@ -1,0 +1,45 @@
+/* ===========================================================================
+   VERDANT · TYPOGRAPHY TOKENS
+   Display: Bricolage Grotesque (warm, organic, characterful)
+   Text/UI: Hanken Grotesk (clean humanist sans, highly readable)
+   Mono:    Space Mono (data, measurements, labels)
+   =========================================================================== */
+:root {
+  /* --- Families -------------------------------------------------------- */
+  --font-display: 'Bricolage Grotesque', 'Hanken Grotesk', system-ui, sans-serif;
+  --font-text:    'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+  --font-mono:    'Space Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  /* --- Weights --------------------------------------------------------- */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  --weight-extra:    800;
+
+  /* --- Type scale (px) — generous, room to breathe -------------------- */
+  --text-display-xl: 64px;  /* hero marketing headline */
+  --text-display-l:  48px;
+  --text-display-m:  36px;
+  --text-title-l:    28px;  /* screen titles */
+  --text-title-m:    22px;
+  --text-title-s:    18px;
+  --text-body-l:     17px;  /* default app body */
+  --text-body-m:     15px;
+  --text-body-s:     13px;
+  --text-caption:    12px;
+  --text-overline:   11px;
+
+  /* --- Line heights ---------------------------------------------------- */
+  --leading-tight:   1.08;  /* big display */
+  --leading-snug:    1.22;  /* titles */
+  --leading-normal:  1.5;   /* body */
+  --leading-relaxed: 1.65;  /* long-form */
+
+  /* --- Letter spacing -------------------------------------------------- */
+  --tracking-tight:  -0.02em;  /* display */
+  --tracking-snug:   -0.01em;  /* titles */
+  --tracking-normal: 0;
+  --tracking-wide:   0.04em;
+  --tracking-over:   0.14em;   /* overlines / eyebrows (UPPERCASE) */
+}

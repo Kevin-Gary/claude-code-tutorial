@@ -1,12 +1,28 @@
 # app/ — the Verdant marketing site
 
-This is the real product surface we operate on during the tutorial: a **Next.js + TypeScript**
-marketing site styled with Verdant's **Claude Design** system.
+The real product surface: a **Next.js + TypeScript + Tailwind v4** marketing site, built on
+Verdant's **Claude Design** system (tokens + components imported via the `claude_design` MCP).
 
-It gets built in two steps:
-1. **`/design-login` + `/design-sync`** pull Verdant's design system (tokens + components) into the
-   repo, so Claude Code builds against the *real* design language instead of guessing.
-2. We build the site on top of that synced system.
+## Run it
+```bash
+cd app
+npm install
+npm run dev        # http://localhost:3000
+```
+`npm run build` produces an optimized static export of the landing page.
 
-> Placeholder for now. The site lands here once the design system is synced. That's the
-> Day-1 → Day-2 throughline: the brand you designed in Claude Design becomes the code you ship.
+## How it's wired
+- **Design tokens are the source of truth.** `src/styles/tokens/{fonts,colors,typography,spacing,effects}.css`
+  are synced **verbatim** from the Verdant design system. `src/app/globals.css` imports them (the
+  webfont `@import` is kept first so the browser doesn't ignore it) and pulls in Tailwind v4.
+- **Components mirror the design system.** `src/components/ui/` holds the primitives
+  (`Button`, `Badge`, `Avatar`, `CareRing`, `Icon`); `src/components/site/` holds the six landing
+  sections. They style themselves with Tailwind utilities that reference the token CSS variables
+  (e.g. `bg-[var(--forest-600)]`, `rounded-[var(--radius-pill)]`), so the tokens stay authoritative.
+- **Icons** come from `lucide-react` (the system's Lucide choice), wrapped by a typed `Icon`.
+- **Page:** `src/app/page.tsx` composes Nav → Hero → How it works → Diagnose → Testimonials → Footer.
+
+## Notes / swap-later
+- Fonts load from the Google Fonts CDN (matching the design system's `fonts.css`). Swap for
+  `next/font` or licensed binaries when available.
+- Hero / diagnose imagery uses the design system's Unsplash placeholders — replace with owned assets.

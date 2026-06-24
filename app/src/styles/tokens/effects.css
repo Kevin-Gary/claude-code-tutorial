@@ -1,0 +1,41 @@
+/* ===========================================================================
+   VERDANT · RADII, BORDERS, SHADOWS, MOTION
+   Soft & rounded. Shadows are low, warm-tinted and diffuse — never harsh black.
+   =========================================================================== */
+:root {
+  /* --- Corner radii — generously rounded ------------------------------ */
+  --radius-xs:   6px;
+  --radius-sm:   10px;
+  --radius-md:   16px;   /* default cards, inputs */
+  --radius-lg:   22px;   /* large cards, sheets */
+  --radius-xl:   30px;   /* hero panels */
+  --radius-pill: 999px;  /* buttons, chips, tags */
+
+  /* --- Borders -------------------------------------------------------- */
+  --border-width: 1px;
+  --border-hair:  1px solid var(--border-subtle);
+  --border-card:  1px solid var(--border-default);
+
+  /* --- Shadows — warm forest-tinted, soft & layered ------------------- */
+  --shadow-xs:  0 1px 2px rgba(27, 36, 31, 0.06);
+  --shadow-sm:  0 2px 8px rgba(27, 36, 31, 0.06);
+  --shadow-md:  0 6px 18px rgba(27, 36, 31, 0.08);
+  --shadow-lg:  0 16px 40px rgba(27, 36, 31, 0.12);
+  --shadow-xl:  0 28px 64px rgba(16, 42, 32, 0.16);
+  --shadow-accent: 0 8px 24px rgba(132, 188, 56, 0.32); /* sprout glow on CTA */
+  --shadow-inset:  inset 0 1px 2px rgba(27, 36, 31, 0.05);
+
+  /* --- Motion — calm, never bouncy -------------------------------------*/
+  --ease-out:   cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-soft:  cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:   120ms;
+  --dur-base:   200ms;
+  --dur-slow:   320ms;
+}
+
+/* Shared keyframes used by components (e.g. Button loading spinner). */
+@keyframes verdant-spin { to { transform: rotate(360deg); } }
+@keyframes verdant-fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

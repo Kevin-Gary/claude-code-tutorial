@@ -1,0 +1,79 @@
+/* ===========================================================================
+   VERDANT · COLOR TOKENS
+   Deep forest greens · warm neutrals · one bright living-green accent.
+   Base palette first, then semantic aliases. Use the semantic aliases in UI.
+   =========================================================================== */
+:root {
+  /* --- Forest (primary brand green) ------------------------------------ */
+  --forest-900: #102A20;  /* deepest — display text on light, dark surfaces */
+  --forest-800: #16382A;
+  --forest-700: #1B4434;
+  --forest-600: #1F5240;  /* primary brand green */
+  --forest-500: #2C6B52;
+  --forest-400: #3E8767;
+  --forest-300: #6BA98C;
+  --forest-200: #A6CcB8;
+  --forest-100: #D6E7DD;
+  --forest-50:  #ECF3EF;
+
+  /* --- Sprout (bright living-green accent) ----------------------------- */
+  --sprout-700: #6FA22E;
+  --sprout-600: #84BC38;
+  --sprout-500: #9FD356;  /* the bright accent — fresh new-growth green */
+  --sprout-400: #B4E072;
+  --sprout-300: #CDEB9C;
+  --sprout-200: #E3F4C8;
+  --sprout-100: #F0F9E4;
+
+  /* --- Warm neutrals (paper, sand, clay) ------------------------------- */
+  --cream:      #F8F5EE;  /* app / page background */
+  --paper:      #FFFDF8;  /* raised card surface */
+  --sand-100:   #F1ECE0;
+  --sand-200:   #E7DFCE;
+  --sand-300:   #DBD0B9;  /* warm hairline borders */
+  --clay-400:   #C3B79B;
+
+  /* --- Warm ink / text greys ------------------------------------------- */
+  --ink-900:    #1B241F;  /* primary text (warm near-black green) */
+  --ink-700:    #3A463E;
+  --ink-500:    #5E6A60;  /* secondary text */
+  --ink-400:    #828C82;  /* muted / captions */
+  --ink-300:    #A7AFa4;  /* disabled */
+
+  /* --- Care semantics (plant-care signal hues) ------------------------- */
+  --water-500:  #3E8AAE;  /* watering / hydration  (cool blue)   */
+  --water-100:  #DCEDF3;
+  --sun-500:    #E0A23B;  /* light / sun / feeding (warm amber)  */
+  --sun-100:    #F8ECD3;
+  --thriving-500:#4E9E6A; /* healthy / thriving    (success)     */
+  --thriving-100:#DBEFE2;
+  --wilt-500:   #C56B52;  /* sick / needs help     (terracotta)  */
+  --wilt-100:   #F3E0D9;
+
+  /* =====================================================================
+     SEMANTIC ALIASES — prefer these in components & screens
+     ===================================================================== */
+  --bg-page:        var(--cream);
+  --bg-surface:     var(--paper);
+  --bg-sunk:        var(--sand-100);
+  --bg-inverse:     var(--forest-700);
+
+  --text-strong:    var(--ink-900);
+  --text-body:      var(--ink-700);
+  --text-muted:     var(--ink-500);
+  --text-faint:     var(--ink-400);
+  --text-on-forest: var(--cream);
+  --text-on-sprout: var(--forest-900);
+  --text-link:      var(--forest-600);
+
+  --border-subtle:  var(--sand-200);
+  --border-default: var(--sand-300);
+  --border-strong:  var(--clay-400);
+
+  --brand-primary:  var(--forest-600);
+  --brand-primary-hover: var(--forest-700);
+  --brand-accent:   var(--sprout-500);
+  --brand-accent-hover: var(--sprout-600);
+
+  --focus-ring:     var(--sprout-500);
+}
