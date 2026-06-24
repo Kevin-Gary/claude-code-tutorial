@@ -20,7 +20,7 @@ npm run dev        # http://localhost:3000
   sections. They style themselves with Tailwind utilities that reference the token CSS variables
   (e.g. `bg-[var(--forest-600)]`, `rounded-[var(--radius-pill)]`), so the tokens stay authoritative.
 - **Icons** come from `lucide-react` (the system's Lucide choice), wrapped by a typed `Icon`.
-- **Page:** `src/app/page.tsx` composes Nav → Hero → How it works → Diagnose → Testimonials → Footer.
+- **Page:** `src/app/page.tsx` composes Nav → Hero → How it works → Diagnose → Pricing → Footer.
 
 ## Notes / swap-later
 - Fonts load from the Google Fonts CDN (matching the design system's `fonts.css`). Swap for

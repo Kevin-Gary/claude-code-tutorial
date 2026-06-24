@@ -6,7 +6,7 @@
  * short business justification) into the product context, and implement the real
  * pricing UI right here: a couple of tiers (name, price, features, CTA), built with
  * the same design-system tokens + the <Button> component the rest of the site uses
- * (see Testimonials.tsx / ui/Button.tsx for the patterns).
+ * (see HowItWorks.tsx / ui/Button.tsx for the patterns).
  */
 export function Pricing() {
   return (
