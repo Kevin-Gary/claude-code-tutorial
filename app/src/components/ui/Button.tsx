@@ -33,6 +33,8 @@ export interface ButtonProps
   fullWidth?: boolean;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
+  /** When set, the button renders as an anchor — handy for in-page CTAs. */
+  href?: string;
 }
 
 export function Button({
@@ -41,26 +43,35 @@ export function Button({
   fullWidth = false,
   leftIcon = null,
   rightIcon = null,
+  href,
   className,
   children,
   ...rest
 }: ButtonProps) {
+  const classes = cn(
+    "inline-flex items-center justify-center whitespace-nowrap rounded-[var(--radius-pill)]",
+    "font-[family-name:var(--font-text)] font-semibold leading-none tracking-[-0.01em]",
+    "cursor-pointer transition-[background-color,transform,box-shadow] duration-200 ease-[var(--ease-soft)]",
+    "hover:-translate-y-px active:scale-[0.97]",
+    "disabled:pointer-events-none disabled:opacity-45",
+    SIZES[size],
+    VARIANTS[variant],
+    fullWidth ? "w-full" : "w-auto",
+    className,
+  );
+
+  if (href) {
+    return (
+      <a href={href} className={classes}>
+        {leftIcon}
+        {children}
+        {rightIcon}
+      </a>
+    );
+  }
+
   return (
-    <button
-      type="button"
-      className={cn(
-        "inline-flex items-center justify-center whitespace-nowrap rounded-[var(--radius-pill)]",
-        "font-[family-name:var(--font-text)] font-semibold leading-none tracking-[-0.01em]",
-        "cursor-pointer transition-[background-color,transform,box-shadow] duration-200 ease-[var(--ease-soft)]",
-        "hover:-translate-y-px active:scale-[0.97]",
-        "disabled:pointer-events-none disabled:opacity-45",
-        SIZES[size],
-        VARIANTS[variant],
-        fullWidth ? "w-full" : "w-auto",
-        className,
-      )}
-      {...rest}
-    >
+    <button type="button" className={classes} {...rest}>
       {leftIcon}
       {children}
       {rightIcon}

@@ -2,13 +2,22 @@ import {
   ArrowRight,
   Bell,
   CalendarHeart,
+  Camera,
   Check,
   Droplet,
+  ImagePlus,
+  Leaf,
+  LoaderCircle,
+  RefreshCw,
   ScanLine,
   Smartphone,
   Sparkles,
   Star,
   Stethoscope,
+  Sun,
+  TriangleAlert,
+  Upload,
+  X,
   type LucideIcon,
 } from "lucide-react";
 
@@ -28,6 +37,15 @@ const registry = {
   bell: Bell,
   stethoscope: Stethoscope,
   check: Check,
+  camera: Camera,
+  "image-plus": ImagePlus,
+  upload: Upload,
+  x: X,
+  leaf: Leaf,
+  sun: Sun,
+  "triangle-alert": TriangleAlert,
+  "refresh-cw": RefreshCw,
+  "loader-circle": LoaderCircle,
 } satisfies Record<string, LucideIcon>;
 
 export type IconName = keyof typeof registry;

@@ -4,6 +4,8 @@
      the folder tree loading any parent CLAUDE.md too, so context inherits from broad to narrow.
      Keep this tight and high-signal. It is loaded into context, so every line costs tokens. -->
 
+When relevant pull in context from files that I have in .claude/docs make sure to check that when we're talking
+
 # Verdant
 
 Verdant is a plant-care and plant-identification company. This repo holds the **marketing
@@ -13,6 +15,29 @@ site** (in `app/`) plus the Claude Code setup used to build and run it.
 A fast, friendly marketing site that turns plant-curious visitors into app installs. The site
 is built with **Next.js + TypeScript + Tailwind**, styled with Verdant's **Claude Design**
 system (synced into this repo via `/design-sync`).
+
+## Pricing & business model
+Verdant runs a **freemium subscription**: a free tier that gets people in the door, plus two
+paid tiers billed monthly or annually.
+
+| Tier | Monthly | Annual | Who it's for |
+| --- | --- | --- | --- |
+| **Free** | $0 | $0 | First few plants — ID up to 5 plants/mo, reminders for up to 3 plants, community access. |
+| **Plus** | $5.99 | $39.99 (save ~44%) | A growing collection — unlimited ID, unlimited care plans + smart seasonal reminders, photo diagnosis (Plant Doctor), light meter & room placement. |
+| **Family** | $9.99 | $79.99 (save ~33%) | The whole household — everything in Plus, up to 5 members, a shared plant library, priority expert help, early access. |
+
+**Why this model:**
+- **Free tier feeds the install funnel.** The site's whole job is installs. Giving away the
+  magic moment (identify a plant, get a real care plan) removes friction, builds trust, and
+  drives word of mouth — the cheapest growth we have.
+- **Plus is the revenue core.** Keeping plants alive is a *recurring* problem, so a recurring
+  price is honest. The paid features (unlimited ID, smart reminders, diagnosis) map directly to
+  ongoing value, not a one-time unlock.
+- **Family lifts ARPU** on our most engaged households (multi-person plant collections) and is
+  nearly free to serve once Plus exists.
+- **Priced for the market.** Benchmarked against Planta / PictureThis (~$30–40/yr). Plus at
+  $39.99/yr sits mid-market; the annual discount nudges toward annual plans for better LTV and
+  lower churn.
 
 ## How to work in this repo
 <!-- 📘 Conventions go here. This is where you teach Claude your taste once, instead of
