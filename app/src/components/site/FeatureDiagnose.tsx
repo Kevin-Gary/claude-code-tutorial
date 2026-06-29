@@ -20,8 +20,8 @@ export function FeatureDiagnose() {
             Something looks off? Find out why.
           </h2>
           <p className="mb-[26px] mt-0 max-w-[420px] text-[17px] leading-[1.6] text-[rgba(248,245,238,0.78)]">
-            Snap a photo of a struggling plant and Verdant tells you what&apos;s
-            wrong — and exactly how to nurse it back.
+            Snap a photo of a struggling plant. Verdant tells you what&apos;s
+            wrong and exactly how to nurse it back.
           </p>
           <ul className="mb-[30px] mt-0 flex list-none flex-col gap-3.5 p-0">
             {POINTS.map((p) => (
@@ -36,7 +36,7 @@ export function FeatureDiagnose() {
               </li>
             ))}
           </ul>
-          <Button variant="accent" size="lg">
+          <Button variant="accent" size="lg" href="#plant-doctor">
             Try a diagnosis
           </Button>
         </div>
