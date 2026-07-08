@@ -14,3 +14,6 @@ dist/
 
 # OS
 .DS_Store
+
+# Claude Code per-session marker (used by the Stop hook to scope plan saves)
+.claude/.session-start

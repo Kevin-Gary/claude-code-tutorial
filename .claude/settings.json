@@ -23,12 +23,22 @@
     ]
   },
   "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "mkdir -p \"$CLAUDE_PROJECT_DIR/.claude\" && touch \"$CLAUDE_PROJECT_DIR/.claude/.session-start\""
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "hooks": [
           {
             "type": "command",
-            "command": "bash -c 'dest=\"$CLAUDE_PROJECT_DIR/plans\"; mkdir -p \"$dest\"; latest=$(ls -t \"$HOME/.claude/plans\"/*.md 2>/dev/null | head -1); [ -n \"$latest\" ] && cp -n \"$latest\" \"$dest/\" 2>/dev/null; exit 0'"
+            "command": "bash -c 'dest=\"$CLAUDE_PROJECT_DIR/plans\"; mkdir -p \"$dest\"; marker=\"$CLAUDE_PROJECT_DIR/.claude/.session-start\"; latest=$(ls -t \"$HOME/.claude/plans\"/*.md 2>/dev/null | head -1); [ -n \"$latest\" ] && [ \"$latest\" -nt \"$marker\" ] && cp -n \"$latest\" \"$dest/\" 2>/dev/null; exit 0'"
           },
           {
             "type": "command",
