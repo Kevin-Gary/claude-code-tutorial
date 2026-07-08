@@ -36,7 +36,7 @@ export function FeatureDiagnose() {
               </li>
             ))}
           </ul>
-          <Button variant="accent" size="lg">
+          <Button variant="accent" size="lg" href="#plant-doctor">
             Try a diagnosis
           </Button>
         </div>
