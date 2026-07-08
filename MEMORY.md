@@ -10,6 +10,12 @@
 
 Running log of durable decisions and gotchas. Newest first. Keep entries short.
 
+## 2026-07-08 - Gotcha: plan-save Stop hook was leaking other projects' plans
+Claude Code writes every plan-mode plan to one machine-wide dir (~/.claude/plans). The old Stop
+hook copied the globally newest plan into ./plans, so a plan authored in another repo landed here.
+Fixed by scoping to the session: a SessionStart hook drops .claude/.session-start, and Stop only
+copies plans newer than that marker.
+
 ## 2026-06-24 - Freemium reverse-trial, not feature-unlock
 Free tier gives away the magic moment (identify a plant, get a real care plan) to feed the
 install funnel. Plus ($5.99/mo) is the revenue core. Full reasoning: see decisions.md.
