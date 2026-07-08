@@ -4,12 +4,20 @@
      the folder tree loading any parent CLAUDE.md too, so context inherits from broad to narrow.
      Keep this tight and high-signal. It is loaded into context, so every line costs tokens. -->
 
-When relevant pull in context from files that I have in .claude/docs make sure to check that when we're talking
-
 # Verdant
 
 Verdant is a plant-care and plant-identification company. This repo holds the **marketing
 site** (in `app/`) plus the Claude Code setup used to build and run it.
+
+<!-- 📘 @import loads MEMORY.md in full at the start of every session (our committed, team-shared
+     working memory). decisions.md and docs/ are deliberately NOT imported: they're read on demand,
+     so they cost zero context until a task actually needs them. -->
+@MEMORY.md
+
+## Reference (read on demand, not imported)
+- `decisions.md` - the deep ADR archive. Read or grep it for the full "why" behind a decision.
+- `docs/` - reference library (specs, research). Check it when a task calls for it, or pull one
+  file into a prompt, e.g. `@docs/verdant-market-research.md` for pricing and positioning work.
 
 ## What we're building
 A fast, friendly marketing site that turns plant-curious visitors into app installs. The site
@@ -22,14 +30,14 @@ paid tiers billed monthly or annually.
 
 | Tier | Monthly | Annual | Who it's for |
 | --- | --- | --- | --- |
-| **Free** | $0 | $0 | First few plants — ID up to 5 plants/mo, reminders for up to 3 plants, community access. |
-| **Plus** | $5.99 | $39.99 (save ~44%) | A growing collection — unlimited ID, unlimited care plans + smart seasonal reminders, photo diagnosis (Plant Doctor), light meter & room placement. |
-| **Family** | $9.99 | $79.99 (save ~33%) | The whole household — everything in Plus, up to 5 members, a shared plant library, priority expert help, early access. |
+| **Free** | $0 | $0 | First few plants: ID up to 5 plants/mo, reminders for up to 3 plants, community access. |
+| **Plus** | $5.99 | $39.99 (save ~44%) | A growing collection: unlimited ID, unlimited care plans + smart seasonal reminders, photo diagnosis (Plant Doctor), light meter & room placement. |
+| **Family** | $9.99 | $79.99 (save ~33%) | The whole household: everything in Plus, up to 5 members, a shared plant library, priority expert help, early access. |
 
 **Why this model:**
 - **Free tier feeds the install funnel.** The site's whole job is installs. Giving away the
   magic moment (identify a plant, get a real care plan) removes friction, builds trust, and
-  drives word of mouth — the cheapest growth we have.
+  drives word of mouth, the cheapest growth we have.
 - **Plus is the revenue core.** Keeping plants alive is a *recurring* problem, so a recurring
   price is honest. The paid features (unlimited ID, smart reminders, diagnosis) map directly to
   ongoing value, not a one-time unlock.
@@ -49,10 +57,14 @@ paid tiers billed monthly or annually.
   approach before any files change.
 
 ## Project structure
-- `app/` — the Verdant marketing site (the real product surface).
-- `plans/` — saved plans from plan mode (our durable decision history).
-- `.claude/` — the Claude Code config: skills, subagents, slash commands, settings, hooks.
-- `.mcp.json` — external tools/data wired in over MCP (Claude Design lives here).
+- `app/` - the Verdant marketing site (the real product surface).
+- `MEMORY.md` - committed working memory, @imported above (loads every session, keep it lean).
+- `decisions.md` - deep ADR archive, read on demand (not imported).
+- `docs/` - reference library, read on demand.
+- `plans/` - saved plans from plan mode (durable decision history; the Stop hook copies them here).
+- `.claude/` - the Claude Code config: `rules/`, `skills/`, `agents/` (subagents), `commands/`,
+  `hooks/`, `settings.json`.
+- `.mcp.json` - external tools/data wired in over MCP (Claude Design lives here).
 
 ## Good to know
 <!-- 📘 A "good to know" section is a cheap way to prevent repeated mistakes. Add to it whenever

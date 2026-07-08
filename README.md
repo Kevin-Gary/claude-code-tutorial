@@ -12,13 +12,18 @@ Clone it, read it, steal the patterns into your own projects. Every file here is
 
 | Path | What it teaches |
 | --- | --- |
-| [`CLAUDE.md`](./CLAUDE.md) | The project context "contract" Claude auto-loads every session. Scopes + inheritance. |
+| [`CLAUDE.md`](./CLAUDE.md) | The project context "contract" Claude auto-loads every session. Scopes, inheritance, `@`-imports. |
+| [`MEMORY.md`](./MEMORY.md) | **Committed memory**: a team-shared, versioned log CLAUDE.md `@`-imports so it loads every session. |
+| [`decisions.md`](./decisions.md) | The **deep ADR archive**. Deliberately NOT imported, so it loads only when Claude reads it. |
 | [`CLAUDE.local.md.example`](./CLAUDE.local.md.example) | Personal, gitignored overrides for shared repos. |
-| [`.claude/settings.json`](./.claude/settings.json) | Permissions (allow/deny/ask), modes, and a lifecycle **hook**. |
+| [`.claude/settings.json`](./.claude/settings.json) | Permissions (allow/ask/deny), env, and lifecycle **hooks**. |
+| [`.claude/rules/`](./.claude/rules) | **Rules**: modular instructions, always-on or path-scoped via `paths:` globs. |
+| [`.claude/hooks/`](./.claude/hooks) | Shell **hooks** wired to lifecycle events (here: a Stop hook that nudges memory). |
 | [`.claude/commands/`](./.claude/commands) | Custom slash commands (e.g. `/ship-update`) + the `$ARGUMENTS` pattern. |
 | [`.claude/agents/`](./.claude/agents) | Custom **subagents** (YAML frontmatter, scoped tools + model). |
 | [`.claude/skills/`](./.claude/skills) | **Skills**: reusable recipes Claude pulls in when relevant. |
 | [`.mcp.json`](./.mcp.json) | **MCP** servers wired into this project. |
+| [`docs/`](./docs) | **On-demand reference** library (specs, research). Read when relevant, never auto-imported. |
 | [`plans/`](./plans) | Durable copies of plans from plan mode (the per-project history pattern). |
 | [`app/`](./app) | The real thing to operate on: the Verdant site, built with the synced Claude Design system. |
 
@@ -34,8 +39,10 @@ Markdown files here (`CLAUDE.md`, commands, agents, skills, plans) carry inline 
 Declares the MCP servers this project connects to. MCP ("Model Context Protocol") is the open standard that lets Claude talk to outside tools and data through a consistent interface. This repo's example is **`claude_design`** (`https://api.anthropic.com/v1/design/mcp`), the connector that powers `/design-sync` between Claude Code and Claude Design. Run `/design-login` once to authorize it, then `/mcp` to see/manage it.
 
 ### `.claude/settings.json`
-- **`permissions`** — `allow` / `ask` / `deny` lists that decide what Claude can do without stopping to ask. This repo allows reads/edits and safe git, *asks* before `git push`, and *denies* destructive commands + reading `.env*`.
-- **`hooks.Stop`** — a small lifecycle hook that, when a session ends, copies your most recent plan from `~/.claude/plans/` into this repo's `plans/`. That's how you make durable, per-project plan history happen automatically (the home-level copy only survives a compaction or two).
+- **`$schema`** - points at the Claude Code settings schema so your editor autocompletes and validates the file as you edit.
+- **`permissions`** - `allow` / `ask` / `deny` lists that decide what Claude can do without stopping to ask. This repo allows reads/edits and safe git, asks before `git push`, and denies destructive commands + reading `.env*`.
+- **`env`** - environment variables set for the session (here, an experimental agent-teams flag).
+- **`hooks.Stop`** - two hooks fire when a session ends: one copies your most recent plan from `~/.claude/plans/` into this repo's `plans/` (durable per-project plan history, since the home-level copy only survives a compaction or two), the other runs [`.claude/hooks/persist-memory.sh`](./.claude/hooks/persist-memory.sh) to nudge Claude to record any durable decision in `MEMORY.md`.
 
 ---
 

@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "env": {
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
@@ -28,11 +29,15 @@
           {
             "type": "command",
             "command": "bash -c 'dest=\"$CLAUDE_PROJECT_DIR/plans\"; mkdir -p \"$dest\"; latest=$(ls -t \"$HOME/.claude/plans\"/*.md 2>/dev/null | head -1); [ -n \"$latest\" ] && cp -n \"$latest\" \"$dest/\" 2>/dev/null; exit 0'"
+          },
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/persist-memory.sh\""
           }
         ]
       }
     ]
-},
+  },
   "enabledPlugins": {
     "example-skills@anthropic-agent-skills": true
   }
