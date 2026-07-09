@@ -18,8 +18,8 @@ export function Hero() {
           <span className="text-[var(--forest-500)]">thriving.</span>
         </h1>
         <p className="mb-8 mt-[22px] max-w-[460px] text-[19px] leading-[1.55] text-[var(--text-body)]">
-          Snap a photo to identify any plant, get a care schedule built for your
-          home, and a gentle nudge exactly when it needs you.
+          Point your camera at any plant. You get its name, a care plan made
+          for your space, and a friendly nudge right when it needs you.
         </p>
         <div className="flex flex-wrap items-center gap-4">
           <Button
