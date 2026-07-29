@@ -10,7 +10,7 @@ import { NextResponse } from "next/server";
  */
 
 // Vision + a compact JSON reply — no need to stream, keep it a single call.
-const MODEL = "claude-opus-4-8";
+const MODEL = "claude-opus-5";
 
 const ALLOWED_MEDIA_TYPES = [
   "image/jpeg",
