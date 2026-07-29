@@ -14,8 +14,8 @@ app installs, so every change should make that easier, not just prettier.
 - `src/app/` — routes, `layout.tsx`, `globals.css`. API routes live at `src/app/api/<name>/route.ts`.
 - `src/components/ui/` — generic primitives with no Verdant knowledge in them: `Button`, `Badge`,
   `Icon`, `Avatar`, `CareRing`. Reusable anywhere.
-- `src/components/site/` — page sections that DO know about Verdant: `Hero`, `Pricing`,
-  `PlantDoctor`, `SiteFooter`. Composed in `src/app/page.tsx`.
+- `src/components/site/` — page sections that DO know about Verdant: `SiteNav`, `Hero`,
+  `HowItWorks`, `FeatureDiagnose`, `Pricing`, `SiteFooter`. Composed in `src/app/page.tsx`.
 - `src/lib/` — helpers. `cn.ts` is the className joiner; use it instead of template literals.
 
 Keeping `ui/` ignorant of Verdant is the convention that matters most here. If a primitive
