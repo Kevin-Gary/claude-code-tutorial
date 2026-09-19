@@ -9,15 +9,18 @@
 Verdant is a plant-care and plant-identification company. This repo holds the **marketing
 site** (in `app/`) plus the Claude Code setup used to build and run it.
 
-<!-- 📘 @import loads MEMORY.md in full at the start of every session (our committed, team-shared
-     working memory). decisions.md and docs/ are deliberately NOT imported: they're read on demand,
-     so they cost zero context until a task actually needs them. -->
+<!-- 📘 @import loads these in full at the start of every session: MEMORY.md (our committed,
+     team-shared working memory) and docs/product.md (core product facts). decisions.md and the
+     rest of docs/ are deliberately NOT imported: they're read on demand, so they cost zero
+     context until a task actually needs them. -->
 @MEMORY.md
+@docs/product.md
 
 ## Reference (read on demand, not imported)
 - `decisions.md` - the deep ADR archive. Read or grep it for the full "why" behind a decision.
 - `docs/` - reference library (specs, research). Check it when a task calls for it, or pull one
   file into a prompt, e.g. `@docs/verdant-market-research.md` for pricing and positioning work.
+  (Exception: `docs/product.md` is imported above, so it loads every session.)
 
 ## What we're building
 A fast, friendly marketing site that turns plant-curious visitors into app installs. The site
